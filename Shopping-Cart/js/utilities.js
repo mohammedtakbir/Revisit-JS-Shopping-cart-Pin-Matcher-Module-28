@@ -15,3 +15,6 @@ function setElementValue(elementId, price) {
     const element = document.getElementById(elementId);
     element.innerText = price;
 }
+function removeProducts(e) {
+    e.target.parentNode.parentNode.parentNode.parentNode.removeChild(e.target.parentNode.parentNode.parentNode);
+}

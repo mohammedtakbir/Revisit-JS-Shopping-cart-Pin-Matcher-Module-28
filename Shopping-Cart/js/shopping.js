@@ -43,3 +43,11 @@ document.getElementById('case-minus-btn').addEventListener('click', () => {
     const previousCasePrice = getElementValue('case-price');
     setElementValue('case-price', previousCasePrice - 59);
 })
+
+//* remove products
+document.getElementById('remove-phone-btn').addEventListener('click', (e) => {
+    removeProducts(e);
+})
+document.getElementById('remove-case-btn').addEventListener('click', (e) => {
+    removeProducts(e);
+})
