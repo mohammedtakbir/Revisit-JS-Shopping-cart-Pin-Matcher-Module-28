@@ -6,7 +6,14 @@ document.getElementById('phone-plus-btn').addEventListener('click', () => {
     setInputValue('phone-count', totalPhoneCount);
 
     //* update phone price
-    setElementValue('phone-price', 699 * totalPhoneCount);
+    const phonePrice = totalPhoneCount * 699;
+    setElementValue('phone-price', phonePrice);
+
+    const subTotal = calculateSubTotal('sub-total', 699, true);
+    const tax = calculateTax('tax', subTotal, true)
+    calculateTotal('total', subTotal + tax, true);
+
+
 })
 document.getElementById('phone-minus-btn').addEventListener('click', () => {
     //* update phone count
@@ -20,6 +27,10 @@ document.getElementById('phone-minus-btn').addEventListener('click', () => {
     //* update phone price
     const previousPhonePrice = getElementValue('phone-price');
     setElementValue('phone-price', previousPhonePrice - 699);
+
+    const subTotal = calculateSubTotal('sub-total', 699, false);
+    const tax = calculateTax('tax', subTotal, false);
+    calculateTotal('total', subTotal + tax, false)
 })
 
 //* case price calculation
@@ -27,9 +38,14 @@ document.getElementById('case-plus-btn').addEventListener('click', () => {
     const caseCount = getInputCount('case-count');
     const totalCaseCount = caseCount + 1;
     setInputValue('case-count', totalCaseCount);
+    
+    //* update phone price
+    setElementValue('case-price', totalCaseCount * 59);
 
-    //* update case price
-    setElementValue('case-price', totalCaseCount * 59)
+    const subTotal = calculateSubTotal('sub-total', 59, true);
+    const tax = calculateTax('tax', subTotal, true)
+    calculateTotal('total', subTotal + tax, true);
+
 })
 document.getElementById('case-minus-btn').addEventListener('click', () => {
     const caseCount = getInputCount('case-count');
@@ -42,6 +58,11 @@ document.getElementById('case-minus-btn').addEventListener('click', () => {
     //* update case price
     const previousCasePrice = getElementValue('case-price');
     setElementValue('case-price', previousCasePrice - 59);
+
+    const subTotal = calculateSubTotal('sub-total', 59, false);
+    const tax = calculateTax('tax', subTotal, false);
+    calculateTotal('total', subTotal + tax, false)
+
 })
 
 //* remove products
