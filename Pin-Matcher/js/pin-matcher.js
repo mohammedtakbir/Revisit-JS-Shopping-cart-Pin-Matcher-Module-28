@@ -37,3 +37,16 @@ document.getElementById('calculator').addEventListener('click', (e) => {
         typedPin.value += number
     }
 })
+document.getElementById('submit-btn').addEventListener('click', () => {
+    const rightPin = document.getElementById('right-pin');
+    const wrongPin = document.getElementById('wrong-pin');
+    const typedPin = document.getElementById('typed-pin');
+    const displayedPin = document.getElementById('display-pin');
+    if (typedPin.value === displayedPin.value) {
+        rightPin.removeAttribute('style');
+        wrongPin.setAttribute('style', 'display: none');
+    } else {
+        wrongPin.removeAttribute('style');
+        rightPin.setAttribute('style', 'display: none');
+    }
+}) 
